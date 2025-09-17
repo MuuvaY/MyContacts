@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 const usersRoute = require("./Routes/usersRoute");
+const authRoute = require("./Routes/authRoute");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -17,6 +18,7 @@ mongoose
   .catch((err) => console.error("Erreur:", err));
 
 app.use(usersRoute);
+app.use(authRoute);
 
 app.listen(PORT, () => {
   console.log(`Serveur sur ${PORT}`);
