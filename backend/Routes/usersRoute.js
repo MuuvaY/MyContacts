@@ -1,7 +1,15 @@
-import express from "express";
-import UserModel from "../Models/usersModel";
+const express = require("express");
 
-app.get("/getUsers", async (req, res) => {
-  const userData = await UserModel.find;
-  res.json(userData);
+const usersController = require("../Controllers/usersController");
+const contactController = require("../Controllers/contactsController");
+
+const router = express.Router();
+
+router.get("/getUsers", usersController);
+router.get("/getContacts", contactController);
+
+router.get("/test", (req, res, next) => {
+  res.send("Bonjour je suis un test");
 });
+
+module.exports = router;
