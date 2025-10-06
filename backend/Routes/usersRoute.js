@@ -8,8 +8,4 @@ const router = express.Router();
 router.get("/getUsers", usersController);
 router.get("/getContacts", contactController);
 
-router.get("/test", (req, res, next) => {
-  res.send("Bonjour je suis un test");
-});
-
 module.exports = router;

@@ -17,7 +17,7 @@ const registerController = async (req, res) => {
     const existingUser = await UserModel.findOne({ email });
     if (existingUser) {
       return res.status(200).send({
-        success: true,
+        success: false,
         message: "L'utilisateur exist déjà",
       });
     }
@@ -85,8 +85,8 @@ const loginController = async (req, res) => {
       message: "Connecté avec succès",
       token,
       user: {
-        id: user_id,
-        name: user.name,
+        id: user._id,
+        name: user.firstName,
         email: user.email,
       },
     });
