@@ -7,8 +7,8 @@ import {
 import { AuthProvider } from "./context/AuthContext";
 import PrivateRoute from "./components/Layout/PrivateRoute";
 import Navbar from "./components/Layout/Navbar";
-import Login from "./components/Auth/login";
-import Register from "./components/Auth/register";
+import Login from "./components/Auth/Login";
+import Register from "./components/Auth/Register";
 import ContactList from "./components/Contacts/ContactList";
 
 function App() {
