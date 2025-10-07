@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8000";
+const API_URL = import.meta.env.API_URL;
 
 const api = axios.create({
   baseURL: API_URL,
@@ -51,7 +51,7 @@ export const contactAPI = {
   getAllContacts: () => api.get("/contacts/"),
   getContactById: (id) => api.get(`/contacts/${id}`),
   createContact: (data) => api.post("/contacts", data),
-  updateContact: (id, data) => api.put(`/contacts/${id}`, data),
+  updateContact: (id, data) => api.patch(`/contacts/${id}`, data),
   deleteContact: (id) => api.delete(`/contacts/${id}`),
   searchContacts: (query) => api.get(`/search?query=${query}`),
 };

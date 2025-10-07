@@ -11,33 +11,19 @@ const Navbar = () => {
     navigate("/login");
   };
 
+  console.log("User dans Navbar:", user);
+  console.log("Type de user:", typeof user);
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-content">
           <Link to="/" className="navbar-logo">
-            📱 MyContacts
+            MyContacts
           </Link>
-
-          {user && (
-            <div className="navbar-links">
-              <Link to="/" className="navbar-link">
-                Contacts
-              </Link>
-              <Link to="/profile" className="navbar-link">
-                Profil
-              </Link>
-
-              <div className="navbar-user">
-                <span className="navbar-greeting">
-                  Bonjour, {user.firstName} !
-                </span>
-                <button onClick={handleLogout} className="navbar-logout">
-                  Déconnexion
-                </button>
-              </div>
-            </div>
-          )}
+          <button onClick={handleLogout} className="navbar-logout">
+            Déconnexion
+          </button>
         </div>
       </div>
     </nav>

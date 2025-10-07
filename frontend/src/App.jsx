@@ -10,7 +10,6 @@ import Navbar from "./components/Layout/Navbar";
 import Login from "./components/Auth/login";
 import Register from "./components/Auth/register";
 import ContactList from "./components/Contacts/ContactList";
-import UserProfile from "./components/Profile/UserProfile";
 
 function App() {
   return (
@@ -30,16 +29,6 @@ function App() {
                 </PrivateRoute>
               }
             />
-
-            <Route
-              path="/profile"
-              element={
-                <PrivateRoute>
-                  <UserProfile />
-                </PrivateRoute>
-              }
-            />
-
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </div>

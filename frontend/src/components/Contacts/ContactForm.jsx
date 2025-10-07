@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react";
 import { contactAPI } from "../../services/api";
 import "../../css/Contacts/contactForm.css";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const ContactForm = ({ contact, onClose }) => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
+    genre: "",
     email: "",
     phone: "",
     address: "",
-    company: "",
-    notes: "",
+    postalCode: "",
+    city: "",
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -20,11 +23,12 @@ const ContactForm = ({ contact, onClose }) => {
       setFormData({
         firstName: contact.firstName || "",
         lastName: contact.lastName || "",
+        genre: contact.genre || "",
         email: contact.email || "",
         phone: contact.phone || "",
         address: contact.address || "",
-        company: contact.company || "",
-        notes: contact.notes || "",
+        postalCode: contact.postalCode || "",
+        city: contact.city || "",
       });
     }
   }, [contact]);
@@ -98,6 +102,23 @@ const ContactForm = ({ contact, onClose }) => {
           </div>
 
           <div className="form-group">
+            <label className="form-label">
+              Genre <span className="required">*</span>
+            </label>
+            <select
+              name="genre"
+              value={formData.genre}
+              onChange={handleChange}
+              required
+              className="form-select"
+            >
+              <option value="">-- Sélectionnez un genre --</option>
+              <option value="Homme">Homme</option>
+              <option value="Femme">Femme</option>
+            </select>
+          </div>
+
+          <div className="form-group">
             <label className="form-label">Email</label>
             <input
               type="email"
@@ -110,23 +131,15 @@ const ContactForm = ({ contact, onClose }) => {
 
           <div className="form-group">
             <label className="form-label">Téléphone</label>
-            <input
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              className="form-input"
-            />
-          </div>
-
-          <div className="form-group">
-            <label className="form-label">Entreprise</label>
-            <input
-              type="text"
-              name="company"
-              value={formData.company}
-              onChange={handleChange}
-              className="form-input"
+            <PhoneInput
+              country={"fr"}
+              value={formData.phone || ""}
+              onChange={(phone) => setFormData({ ...formData, phone })}
+              inputClass="form-input-phone"
+              buttonClass="form-phone-flag"
+              dropdownClass="form-phone-dropdown"
+              placeholder="Entrez le numéro de téléphone"
+              enableSearch={true}
             />
           </div>
 
@@ -137,21 +150,38 @@ const ContactForm = ({ contact, onClose }) => {
               name="address"
               value={formData.address}
               onChange={handleChange}
+              placeholder="Ex : 12 rue des Lilas"
               className="form-input"
             />
           </div>
 
-          <div className="form-group">
-            <label className="form-label">Notes</label>
-            <textarea
-              name="notes"
-              value={formData.notes}
-              onChange={handleChange}
-              rows="3"
-              className="form-textarea"
-            ></textarea>
+          <div className="form-row">
+            <div className="form-group">
+              <label className="form-label">Code postal</label>
+              <input
+                type="text"
+                name="postalCode"
+                value={formData.postalCode}
+                onChange={handleChange}
+                placeholder="Ex : 75000"
+                className="form-input"
+              />
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">Ville</label>
+              <input
+                type="text"
+                name="city"
+                value={formData.city}
+                onChange={handleChange}
+                placeholder="Ex : Paris"
+                className="form-input"
+              />
+            </div>
           </div>
 
+          {/* BOUTONS */}
           <div className="form-buttons">
             <button
               type="submit"
