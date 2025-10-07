@@ -1,4 +1,4 @@
-const { hashPassword, comparePassword } = require("../helpers/authhelpers");
+const { hashPassword, comparePassword } = require("../helpers/authHelpers");
 
 const JWT = require("jsonwebtoken");
 const UserModel = require("../Models/usersModel");
