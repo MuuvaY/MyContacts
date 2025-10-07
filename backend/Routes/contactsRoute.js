@@ -7,7 +7,7 @@ const {
   deleteContactController,
   searchContactsController,
 } = require("../Controllers/contactsController");
-const { requireSignIn } = require("../middlewares/authMiddleware");
+const { requireSignIn } = require("../Middlewares/authMiddleware");
 
 const router = express.Router();
 

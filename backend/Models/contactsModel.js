@@ -10,7 +10,7 @@ const contactSchema = new mongoose.Schema({
     require: true,
   },
   phone: {
-    type: Number,
+    type: String,
     require: true,
     unique: true,
   },
@@ -22,6 +22,23 @@ const contactSchema = new mongoose.Schema({
   genre: {
     type: String,
     require: true,
+  },
+  address: {
+    type: String,
+    require: true,
+  },
+  postalCode: {
+    type: String,
+    require: true,
+  },
+  city: {
+    type: String,
+    require: true,
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "users",
+    required: true,
   },
   createdAt: {
     type: Date,

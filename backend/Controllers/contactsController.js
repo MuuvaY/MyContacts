@@ -2,7 +2,17 @@ const ContactModel = require("../Models/contactsModel");
 
 const createContactController = async (req, res) => {
   try {
-    const { firstName, lastName, phone, email, genre, createdAt } = req.body;
+    const {
+      firstName,
+      lastName,
+      phone,
+      email,
+      genre,
+      createdAt,
+      address,
+      postalCode,
+      city,
+    } = req.body;
 
     if (!firstName || !lastName) {
       return res.status(400).send({
@@ -17,6 +27,9 @@ const createContactController = async (req, res) => {
       phone,
       email,
       genre,
+      address,
+      postalCode,
+      city,
       createdAt,
       user: req.user._id,
     });
@@ -94,7 +107,16 @@ const getContactByIdController = async (req, res) => {
 const updateContactController = async (req, res) => {
   try {
     const { id } = req.params;
-    const { firstName, lastName, phone, email, genre } = req.body;
+    const {
+      firstName,
+      lastName,
+      phone,
+      email,
+      genre,
+      address,
+      postalCode,
+      city,
+    } = req.body;
 
     const contact = await ContactModel.findOne({
       _id: id,
@@ -115,6 +137,10 @@ const updateContactController = async (req, res) => {
         phone,
         email,
         genre,
+        genre,
+        address,
+        postalCode,
+        city,
       },
       { new: true }
     );
@@ -184,6 +210,10 @@ const searchContactsController = async (req, res) => {
         { lastName: { $regex: query, $options: "i" } },
         { email: { $regex: query, $options: "i" } },
         { phone: { $regex: query, $options: "i" } },
+        { genre: { $regex: query, $options: "i" } },
+        { address: { $regex: query, $options: "i" } },
+        { postalCode: { $regex: query, $options: "i" } },
+        { city: { $regex: query, $options: "i" } },
       ],
     });
 

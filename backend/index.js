@@ -12,14 +12,17 @@ const contactRoute = require("./Routes/contactsRoute");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-app.use(express.json());
 
 app.use(
   cors({
     origin: "http://localhost:5173",
     credentials: true,
+    methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
+app.use(express.json());
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 

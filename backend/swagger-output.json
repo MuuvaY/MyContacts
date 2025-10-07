@@ -1,14 +1,28 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "MyContacts API",
-    "description": "Documentation automatique générée avec swagger-autogen",
+    "title": "📇 MyContacts API",
+    "description": "API RESTful pour la gestion des contacts. Cette documentation est générée automatiquement avec swagger-autogen. 💡\n\n🔐 Certaines routes nécessitent un token JWT.\n👉 Connectez-vous via `/login` pour récupérer un token et ajoutez-le dans le bouton *Authorize* (en haut à droite).",
     "version": "1.0.0"
   },
   "host": "localhost:8000",
   "basePath": "/",
   "schemes": [
     "http"
+  ],
+  "securityDefinitions": {
+    "BearerAuth": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "description": "Saisissez le token JWT sous la forme : `Bearer <votre_token>`"
+    }
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
   ],
   "paths": {
     "/getUsers": {
@@ -310,6 +324,75 @@
           "500": {
             "description": "Internal Server Error"
           }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "RegisterUser": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "example": "Jean"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Dupont"
+        },
+        "email": {
+          "type": "string",
+          "example": "jean.dupont@example.com"
+        },
+        "password": {
+          "type": "string",
+          "example": "123456"
+        }
+      }
+    },
+    "LoginUser": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "example": "jean.dupont@example.com"
+        },
+        "password": {
+          "type": "string",
+          "example": "123456"
+        }
+      }
+    },
+    "Contact": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "example": "Marie"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Curie"
+        },
+        "email": {
+          "type": "string",
+          "example": "marie.curie@example.com"
+        },
+        "phone": {
+          "type": "string",
+          "example": "+33123456789"
+        },
+        "address": {
+          "type": "string",
+          "example": "12 rue de la Paix, Paris"
+        },
+        "company": {
+          "type": "string",
+          "example": "CNRS"
+        },
+        "notes": {
+          "type": "string",
+          "example": "Contact de recherche"
         }
       }
     }
