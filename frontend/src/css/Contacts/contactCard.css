@@ -3,11 +3,12 @@
   border-radius: 0.75rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   padding: 1.5rem;
-  transition: box-shadow 0.2s ease;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .contact-card:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
 }
 
 .contact-card-header {
@@ -20,7 +21,7 @@
 .contact-avatar {
   width: 3rem;
   height: 3rem;
-  background-color: #2563eb;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -28,24 +29,9 @@
   color: white;
   font-weight: 700;
   font-size: 1.25rem;
-}
-.contact-gender {
-  display: inline-block;
-  padding: 0.25rem 0.5rem;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: white;
-  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
 }
 
-.contact-gender.homme {
-  background-color: #3b82f6;
-}
-
-.contact-gender.femme {
-  background-color: #ec4899;
-}
 .contact-actions {
   display: flex;
   gap: 0.5rem;
@@ -55,7 +41,8 @@
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
   transition: color 0.2s ease;
 }
 
@@ -79,7 +66,25 @@
   font-size: 1.25rem;
   font-weight: 700;
   color: #1f2937;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.contact-gender {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 0.75rem;
+}
+
+.contact-gender.homme {
+  background-color: #3b82f6;
+}
+
+.contact-gender.femme {
+  background-color: #ec4899;
 }
 
 .contact-info {
@@ -87,7 +92,8 @@
   align-items: center;
   gap: 0.5rem;
   color: #4b5563;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
 }
 
 .contact-link {
@@ -102,6 +108,20 @@
 
 .contact-address {
   font-size: 0.9rem;
+  color: #374151;
+  line-height: 1.4;
+}
+
+.contact-location {
+  font-size: 0.9rem;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.contact-location span {
+  display: inline-block;
 }
 
 .contact-notes {
@@ -111,6 +131,7 @@
   padding: 0.75rem;
   font-size: 0.95rem;
   color: #374151;
+  border-left: 4px solid #2563eb;
 }
 
 @media (max-width: 640px) {

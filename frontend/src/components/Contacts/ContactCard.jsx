@@ -6,8 +6,8 @@ const ContactCard = ({ contact, onEdit, onDelete }) => {
     <div className="contact-card">
       <div className="contact-card-header">
         <div className="contact-avatar">
-          {contact.firstName[0]}
-          {contact.lastName[0]}
+          {contact.firstName?.[0]}
+          {contact.lastName?.[0]}
         </div>
         <div className="contact-actions">
           <button
@@ -59,9 +59,18 @@ const ContactCard = ({ contact, onEdit, onDelete }) => {
         </div>
       )}
 
-      {contact.address && (
+      {(contact.address || contact.city || contact.postalCode) && (
         <div className="contact-info">
-          <span className="contact-address">{contact.address}</span>
+          <div className="contact-address">
+            {contact.address && <div>{contact.address}</div>}
+            {(contact.postalCode || contact.city) && (
+              <div className="contact-location">
+                <span>{contact.postalCode}</span>
+                {contact.postalCode && contact.city && <span>-</span>}
+                <span>{contact.city}</span>
+              </div>
+            )}
+          </div>
         </div>
       )}
 
