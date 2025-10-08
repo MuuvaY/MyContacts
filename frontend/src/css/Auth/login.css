@@ -1,13 +1,11 @@
-/* ----- Structure globale ----- */
 .login-page {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f3f4f6; /* gris clair */
+  background-color: #f3f4f6;
 }
 
-/* ----- Conteneur principal ----- */
 .login-container {
   background-color: #ffffff;
   padding: 2rem;
@@ -18,16 +16,14 @@
   box-sizing: border-box;
 }
 
-/* ----- Titre ----- */
 .login-title {
   font-size: 2rem;
   font-weight: bold;
-  color: #2563eb; /* bleu */
+  color: #2563eb;
   text-align: center;
   margin-bottom: 1.5rem;
 }
 
-/* ----- Erreur ----- */
 .login-error {
   background-color: #fee2e2;
   border: 1px solid #f87171;
@@ -38,7 +34,6 @@
   text-align: center;
 }
 
-/* ----- Formulaire ----- */
 .login-form {
   display: flex;
   flex-direction: column;
@@ -69,7 +64,6 @@
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
 }
 
-/* ----- Bouton ----- */
 .login-button {
   width: 100%;
   padding: 0.75rem;
@@ -91,7 +85,6 @@
   cursor: not-allowed;
 }
 
-/* ----- Responsive ----- */
 @media (max-width: 600px) {
   .login-container {
     padding: 1rem;
@@ -118,7 +111,6 @@
   }
 }
 
-/* ----- Lien d'inscription ----- */
 .register-link {
   text-align: center;
   margin-top: 1rem;
