@@ -14,8 +14,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
-    // origin: "https://my-contacts-beta.vercel.app",
-    origin: "true",
+    origin: "https://my-contacts-beta.vercel.app",
     credentials: true,
     methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
