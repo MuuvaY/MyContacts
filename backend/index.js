@@ -9,6 +9,8 @@ const usersRoute = require("./Routes/usersRoute");
 const authRoute = require("./Routes/authRoute");
 const contactRoute = require("./Routes/contactsRoute");
 
+require("dotenv").config({ path: ".env.test" });
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -37,3 +39,5 @@ app.use(contactRoute);
 app.listen(PORT, () => {
   console.log(`Serveur sur ${PORT}`);
 });
+
+module.exports = app;
