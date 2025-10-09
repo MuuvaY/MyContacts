@@ -5,7 +5,7 @@
     "description": "API de gestion des contacts sécurisée par token JWT",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "https://mycontacts-gh6n.onrender.com/",
   "basePath": "/",
   "schemes": ["http"],
   "securityDefinitions": {
