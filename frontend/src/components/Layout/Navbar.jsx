@@ -21,9 +21,11 @@ const Navbar = () => {
           <Link to="/" className="navbar-logo">
             MyContacts
           </Link>
-          <button onClick={handleLogout} className="navbar-logout">
-            Déconnexion
-          </button>
+          {user ? (
+            <button onClick={handleLogout} className="navbar-logout">
+              Déconnexion
+            </button>
+          ) : null}
         </div>
       </div>
     </nav>
