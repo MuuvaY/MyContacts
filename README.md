@@ -24,7 +24,18 @@ Chaque utilisateur peut créer un compte, se connecter et gérer sa liste de con
 - **Backend** : **Node.js**, **Express.js** (API RESTful)
 - **Frontend** : **React**
 - **Base de données** : **MongoDB** (via Mongoose)
+- **Documentation** : **Swagger**
 - **Tests** : **Jest** (`npm test`)
+
+---
+
+## Accès 
+
+Accès au front : [My Contacts](https://my-contacts-beta.vercel.app/)
+
+Accès au back : (https://mycontacts-gh6n.onrender.com/)
+
+Accès au swagger : (https://mycontacts-gh6n.onrender.com/api-docs)
 
 ---
 
@@ -59,6 +70,8 @@ node index.js
 # Le serveur démarrera sur http://localhost:5000
 ```
 
+---
+
 ## 3. Configuration et Lancement du Frontend (frontend/)
 ### a. Installation des dépendances
 
@@ -73,6 +86,7 @@ npm install
 npm run vite
 # L’application sera accessible via http://localhost:3000
 ````
+---
 
 ### Tests
 
@@ -82,5 +96,20 @@ Pour lancer les tests, exécutez la commande suivante dans le répertoire approp
 npm test
 ```
 
+---
+
+## Endpoints 
+| Colonne 1 | Colonne 2 | Colonne 3 |
+|------------|------------|------------|
+| POST   | /register   | Créer un compte   |
+| POST   | /login   | Se connecter   |
+| GET   | /contacts| Liste des contacts   |
+| POST   | /contacts   | Ajouter un contact   |
+| PATCH   | /contacts/:id   | Modifier un contact   |
+| DELETE   | /contacts/:id   | Supprimer un contact   |
+
+
 ## Auteur
 > **Projet réalisé par :** [Marius YVART](https://github.com/MuvvaY)
+
+Dans le cadre d'un projet de l'Efrei Octobre 2025
