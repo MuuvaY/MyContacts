@@ -7,6 +7,16 @@
   },
   "host": "localhost:8000",
   "basePath": "/",
+  "tags": [
+    {
+      "name": "Authentification",
+      "description": "Endpoints pour l'inscription et la connexion"
+    },
+    {
+      "name": "Contacts",
+      "description": "Gestion des contacts (CRUD)"
+    }
+  ],
   "schemes": [
     "http"
   ],
@@ -157,6 +167,15 @@
                 },
                 "createdAt": {
                   "example": "any"
+                },
+                "address": {
+                  "example": "any"
+                },
+                "postalCode": {
+                  "example": "any"
+                },
+                "city": {
+                  "example": "any"
                 }
               }
             }
@@ -276,6 +295,15 @@
                 },
                 "genre": {
                   "example": "any"
+                },
+                "address": {
+                  "example": "any"
+                },
+                "postalCode": {
+                  "example": "any"
+                },
+                "city": {
+                  "example": "any"
                 }
               }
             }
@@ -393,6 +421,549 @@
         "notes": {
           "type": "string",
           "example": "Contact de recherche"
+        }
+      }
+    },
+    "ContactUpdate": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "example": "Marie"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Curie"
+        },
+        "email": {
+          "type": "string",
+          "example": "marie.curie@example.com"
+        },
+        "phone": {
+          "type": "string",
+          "example": "+33123456789"
+        },
+        "address": {
+          "type": "string",
+          "example": "12 rue de la Paix, Paris"
+        },
+        "company": {
+          "type": "string",
+          "example": "CNRS"
+        },
+        "notes": {
+          "type": "string",
+          "example": "Contact de recherche mis à jour"
+        }
+      }
+    },
+    "AuthResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "example": true
+        },
+        "message": {
+          "type": "string",
+          "example": "Connexion réussie"
+        },
+        "token": {
+          "type": "string",
+          "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+        },
+        "user": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "example": "60d5ec49f1b2c72b8c8e4f1a"
+            },
+            "firstName": {
+              "type": "string",
+              "example": "Jean"
+            },
+            "lastName": {
+              "type": "string",
+              "example": "Dupont"
+            },
+            "email": {
+              "type": "string",
+              "example": "jean.dupont@example.com"
+            }
+          }
+        }
+      }
+    },
+    "ContactResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "example": true
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "example": "60d5ec49f1b2c72b8c8e4f1b"
+            },
+            "firstName": {
+              "type": "string",
+              "example": "Marie"
+            },
+            "lastName": {
+              "type": "string",
+              "example": "Curie"
+            },
+            "email": {
+              "type": "string",
+              "example": "marie.curie@example.com"
+            },
+            "phone": {
+              "type": "string",
+              "example": "+33123456789"
+            },
+            "address": {
+              "type": "string",
+              "example": "12 rue de la Paix, Paris"
+            },
+            "company": {
+              "type": "string",
+              "example": "CNRS"
+            },
+            "notes": {
+              "type": "string",
+              "example": "Contact de recherche"
+            },
+            "createdAt": {
+              "type": "string",
+              "example": "2025-10-09T10:30:00.000Z"
+            },
+            "updatedAt": {
+              "type": "string",
+              "example": "2025-10-09T10:30:00.000Z"
+            }
+          }
+        }
+      }
+    },
+    "ContactsResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "example": true
+        },
+        "contacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "60d5ec49f1b2c72b8c8e4f1b"
+              },
+              "firstName": {
+                "type": "string",
+                "example": "Marie"
+              },
+              "lastName": {
+                "type": "string",
+                "example": "Curie"
+              },
+              "email": {
+                "type": "string",
+                "example": "marie.curie@example.com"
+              },
+              "phone": {
+                "type": "string",
+                "example": "+33123456789"
+              },
+              "address": {
+                "type": "string",
+                "example": "12 rue de la Paix, Paris"
+              },
+              "company": {
+                "type": "string",
+                "example": "CNRS"
+              },
+              "notes": {
+                "type": "string",
+                "example": "Contact de recherche"
+              },
+              "createdAt": {
+                "type": "string",
+                "example": "2025-10-09T10:30:00.000Z"
+              },
+              "updatedAt": {
+                "type": "string",
+                "example": "2025-10-09T10:30:00.000Z"
+              }
+            }
+          }
+        },
+        "total": {
+          "type": "number",
+          "example": 1
+        }
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "example": false
+        },
+        "message": {
+          "type": "string",
+          "example": "Une erreur est survenue"
+        },
+        "error": {
+          "type": "string",
+          "example": "Détails de l'erreur"
+        }
+      }
+    }
+  },
+  "@schemas": {
+    "/register": {
+      "post": {
+        "tags": [
+          "Authentification"
+        ],
+        "summary": "Inscription d'un nouvel utilisateur",
+        "description": "Crée un nouveau compte utilisateur et retourne un token JWT",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RegisterUser"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Compte créé avec succès",
+            "schema": {
+              "$ref": "#/definitions/AuthResponse"
+            }
+          },
+          "400": {
+            "description": "Données invalides ou email déjà utilisé",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "tags": [
+          "Authentification"
+        ],
+        "summary": "Connexion utilisateur",
+        "description": "Authentifie un utilisateur et retourne un token JWT",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LoginUser"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Connexion réussie",
+            "schema": {
+              "$ref": "#/definitions/AuthResponse"
+            }
+          },
+          "400": {
+            "description": "Requête invalide",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Identifiants incorrects",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/contacts": {
+      "get": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Récupérer tous les contacts",
+        "description": "Retourne la liste de tous les contacts de l'utilisateur connecté",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "type": "integer",
+            "description": "Numéro de page",
+            "default": 1
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "description": "Nombre de contacts par page",
+            "default": 10
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Liste des contacts récupérée avec succès",
+            "schema": {
+              "$ref": "#/definitions/ContactsResponse"
+            }
+          },
+          "401": {
+            "description": "Non authentifié",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Créer un nouveau contact",
+        "description": "Ajoute un nouveau contact à la liste",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Contact créé avec succès",
+            "schema": {
+              "$ref": "#/definitions/ContactResponse"
+            }
+          },
+          "400": {
+            "description": "Données invalides",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Non authentifié",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/search": {
+      "get": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Rechercher des contacts",
+        "description": "Recherche des contacts par nom, email, téléphone ou entreprise",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "q",
+            "type": "string",
+            "required": true,
+            "description": "Terme de recherche"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Résultats de recherche",
+            "schema": {
+              "$ref": "#/definitions/ContactsResponse"
+            }
+          },
+          "401": {
+            "description": "Non authentifié",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/contacts/{id}": {
+      "get": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Récupérer un contact par ID",
+        "description": "Retourne les détails d'un contact spécifique",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "description": "ID du contact"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contact trouvé",
+            "schema": {
+              "$ref": "#/definitions/ContactResponse"
+            }
+          },
+          "401": {
+            "description": "Non authentifié",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Contact non trouvé",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Mettre à jour un contact",
+        "description": "Modifie les informations d'un contact existant (mise à jour partielle)",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "description": "ID du contact"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContactUpdate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contact mis à jour avec succès",
+            "schema": {
+              "$ref": "#/definitions/ContactResponse"
+            }
+          },
+          "401": {
+            "description": "Non authentifié",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Contact non trouvé",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Supprimer un contact",
+        "description": "Supprime définitivement un contact",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "description": "ID du contact"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contact supprimé avec succès",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Contact supprimé avec succès"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Non authentifié",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "Contact non trouvé",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
         }
       }
     }
