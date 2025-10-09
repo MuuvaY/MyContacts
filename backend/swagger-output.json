@@ -1,38 +1,14 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "MyContacts API",
-    "description": "API RESTful pour la gestion des contacts.",
+    "title": "MyContacts",
+    "description": "Description",
     "version": "1.0.0"
   },
-  "host": "localhost:8000",
+  "host": "localhost:3000",
   "basePath": "/",
-  "tags": [
-    {
-      "name": "Auth",
-      "description": "Inscription et connexion"
-    },
-    {
-      "name": "Contacts",
-      "description": "Gestion des contacts"
-    }
-  ],
   "schemes": [
     "http"
-  ],
-  "securityDefinitions": {
-    "BearerAuth": {
-      "type": "apiKey",
-      "name": "Authorization",
-      "in": "header",
-      "description": "Token JWT : Bearer <votre_token>"
-    }
-  },
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
   ],
   "paths": {
     "/getUsers": {
@@ -352,63 +328,6 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }
-      }
-    }
-  },
-  "definitions": {
-    "RegisterUser": {
-      "type": "object",
-      "properties": {
-        "firstName": {
-          "type": "string",
-          "example": "Jean"
-        },
-        "lastName": {
-          "type": "string",
-          "example": "Dupont"
-        },
-        "email": {
-          "type": "string",
-          "example": "jean.dupont@example.com"
-        },
-        "password": {
-          "type": "string",
-          "example": "123456"
-        }
-      }
-    },
-    "LoginUser": {
-      "type": "object",
-      "properties": {
-        "email": {
-          "type": "string",
-          "example": "jean.dupont@example.com"
-        },
-        "password": {
-          "type": "string",
-          "example": "123456"
-        }
-      }
-    },
-    "Contact": {
-      "type": "object",
-      "properties": {
-        "firstName": {
-          "type": "string",
-          "example": "Marie"
-        },
-        "lastName": {
-          "type": "string",
-          "example": "Curie"
-        },
-        "email": {
-          "type": "string",
-          "example": "marie.curie@example.com"
-        },
-        "phone": {
-          "type": "string",
-          "example": "+33123456789"
         }
       }
     }
