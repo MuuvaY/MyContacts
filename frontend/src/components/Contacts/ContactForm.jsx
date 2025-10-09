@@ -181,7 +181,6 @@ const ContactForm = ({ contact, onClose }) => {
             </div>
           </div>
 
-          {/* BOUTONS */}
           <div className="form-buttons">
             <button
               type="submit"
