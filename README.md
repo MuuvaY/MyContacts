@@ -81,3 +81,6 @@ Pour lancer les tests, exécutez la commande suivante dans le répertoire approp
 ```bash
 npm test
 ```
+
+## Auteur
+> **Projet réalisé par :** [Marius YVART](https://github.com/MuvvaY)
